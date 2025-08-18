@@ -3,8 +3,6 @@
 #include "string.h"
 #include "termios.h"
 #include "unistd.h"
-#include "sys/ioctl.h"
-#include "sgtty.h"
 
 char * openFilename(int argc, char **argv, char * buffer);
 char * loadFile(char * filename);
@@ -79,7 +77,7 @@ void applyKey(int key, char * filename, char * buffer) {
     //printf("%i", key);
     if (key != 0) {
         printf("%d\n", key);
-    }
+    } else printf(".");
 }
 
 int getKeyPress() {
