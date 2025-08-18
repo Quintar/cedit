@@ -86,8 +86,6 @@ int getKeyPress() {
     tcgetattr(STDIN_FILENO, &oldattr);
     newattr = oldattr;
     newattr.c_lflag &= ~(ICANON | ECHO);
-    newattr.c_cc[VMIN] = 1;
-    newattr.c_cc[VTIME] = 0;
     tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
     ch = getchar();
     tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);
